@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube, FaTwitter, FaChevronUp } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin, FaYoutube, FaTwitter, FaChevronUp } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
