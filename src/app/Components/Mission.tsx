@@ -62,7 +62,7 @@ const StandardsComponent: React.FC = () => {
   };
 
   return (
-    <section className="relative py-20 px-6 bg-black text-white overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-black text-white overflow-hidden">
       {/* Background grid lines */}
       <div className="absolute inset-0 bg-[#0A0A15]" 
            style={{
@@ -72,32 +72,51 @@ const StandardsComponent: React.FC = () => {
            }}>
       </div>
       
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10">
         {/* Standards Badge */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-6 sm:mb-8">
           <div className="bg-[#1A1A2E] text-white px-4 py-2 rounded-md shadow-lg">
             Our Standards
           </div>
         </div>
         
         {/* Main Title */}
-        <div className="text-center mb-8">
-          <h2 className="text-5xl font-bold mb-6">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             The Fuel for <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-yellow-400">Our Vision</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-4">
             Driven by vision, we provide comprehensive solutions to meet all your hiring needs.
           </p>
         </div>
         
-        {/* Standard Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-[#0F1019] rounded-full p-1 flex space-x-2">
+        {/* Standard Tabs - Desktop */}
+        <div className="hidden sm:flex justify-center mb-8 md:mb-12">
+          <div className="bg-[#0F1019] rounded-full p-1 flex flex-wrap justify-center">
             {Object.keys(standardsData).map((standard) => (
               <button
                 key={standard}
                 onClick={() => handleStandardChange(standard)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                className={`px-4 sm:px-6 py-2 rounded-full transition-all duration-300 text-sm md:text-base hover:cursor-pointer ${
+                  activeStandard === standard 
+                    ? "bg-white text-black" 
+                    : "text-gray-400 hover:text-gray-200"
+                }`}
+              >
+                {standard.charAt(0).toUpperCase() + standard.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        {/* Standard Tabs - Mobile */}
+        <div className="sm:hidden overflow-x-auto flex justify-start mb-6 pb-2">
+          <div className="bg-[#0F1019] rounded-full p-1 flex space-x-1 min-w-min">
+            {Object.keys(standardsData).map((standard) => (
+              <button
+                key={standard}
+                onClick={() => handleStandardChange(standard)}
+                className={`px-3 py-1.5 rounded-full transition-all duration-300 text-xs whitespace-nowrap ${
                   activeStandard === standard 
                     ? "bg-white text-black" 
                     : "text-gray-400 hover:text-gray-200"
@@ -110,7 +129,7 @@ const StandardsComponent: React.FC = () => {
         </div>
         
         {/* Content Card */}
-        <div className="bg-[#0A0A15] rounded-2xl p-8 shadow-xl border border-gray-800">
+        <div className="bg-[#0A0A15] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-gray-800">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStandard}
@@ -118,37 +137,38 @@ const StandardsComponent: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col md:flex-row gap-8"
+              className="flex flex-col lg:flex-row gap-6 md:gap-8"
             >
               {/* Text Content */}
-              <div className="md:w-1/2">
-                <h3 className="text-3xl font-bold mb-6">
+              <div className="lg:w-1/2">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-6">
                   {standardsData[activeStandard].title}
                 </h3>
-                <p className="text-lg text-gray-400 mb-8">
+                <p className="text-base sm:text-lg text-gray-400 mb-4 sm:mb-8">
                   {standardsData[activeStandard].description}
                 </p>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {standardsData[activeStandard].features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-2">
-                      <div className="text-purple-500 mt-1">
+                      <div className="text-purple-500 mt-1 flex-shrink-0">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M8 0L10.5 5.5L16 8L10.5 10.5L8 16L5.5 10.5L0 8L5.5 5.5L8 0Z" fill="currentColor" />
                         </svg>
                       </div>
-                      <span>{feature}</span>
+                      <span className="text-sm sm:text-base">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
               
               {/* Image */}
-              <div className="md:w-1/2">
-                <div className="relative h-full min-h-[400px] rounded-xl overflow-hidden">
+              <div className="lg:w-1/2 mt-6 lg:mt-0">
+                <div className="relative w-full rounded-lg sm:rounded-xl overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:aspect-auto lg:h-full lg:min-h-[400px]">
                   <Image
                     src={standardsData[activeStandard].imageSrc}
                     alt={standardsData[activeStandard].title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover"
                   />
                 </div>
