@@ -9,9 +9,13 @@ const HowWeThrive = () => {
           {/* Left side - Image */}
           <div className="w-full lg:w-1/2">
             <div className="rounded-2xl overflow-hidden shadow-2xl max-h-[830px]">
-              <img 
+              <Image
                 src="/Assets/thrive.webp" 
+                // layout="fill"
+                width={800}
+                height={600}  
                 alt="Woman working at a desk with data visualizations in the background" 
+               
                 className="w-full h-full object-cover"
               />
             </div>

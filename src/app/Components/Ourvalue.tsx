@@ -68,7 +68,7 @@ const OurValues = () => {
               <span className="text-gray-800 font-medium">05</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
-              We're here to help you aim higher, break limits, and achieve what others might think impossible.
+              We&apos;re here to help you aim higher, break limits, and achieve what others might think impossible.
             </h3>
             <div className="mt-auto">
               <span className="text-gray-800 font-medium text-sm">#ASPIRATION</span>
@@ -107,7 +107,7 @@ const OurValues = () => {
               <span className="text-gray-800 font-medium">07</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
-              We value fresh ideas, bold solutions, and the freedom to imagine what's next.
+              We value fresh ideas, bold solutions, and the freedom to imagine what&apos;s next.
             </h3>
             <div className="mt-auto">
               <span className="text-gray-800 font-medium text-sm">#CREATIVITY</span>

@@ -7,6 +7,7 @@ import { useTheme } from '../Theme/ThemeContext';
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === 'dark';
   const solutionsRef = useRef<HTMLDivElement>(null);

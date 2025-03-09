@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 // Define TypeScript interfaces for our data structure
 interface Stat {
@@ -333,10 +334,12 @@ const MilestonesTimeline: React.FC = () => {
                         </div>
                         <div className="lg:w-1/2">
                           <div className="h-full w-full relative bg-gradient-to-br from-blue-600/30 to-purple-600/30">
-                            <img
+                            <Image
                               src={milestone.image}
+                              layout="fill"
                               alt={`Milestone ${milestone.year}`}
                               className="w-full h-full object-cover"
+                              
                               style={{
                                 opacity: visibleSections[index] ? 1 : 0,
                                 transition: 'opacity 1s ease-out 0.2s'
@@ -349,8 +352,10 @@ const MilestonesTimeline: React.FC = () => {
                       <>
                         <div className="lg:w-1/2">
                           <div className="h-full w-full relative bg-gradient-to-br from-blue-600/30 to-purple-600/30">
-                            <img
+                            <Image
                               src={milestone.image}
+                              width={600} // Set actual width
+  height={400} // Set actual height
                               alt={`Milestone ${milestone.year}`}
                               className="w-full h-full object-cover"
                               style={{

@@ -17,7 +17,7 @@ const StoryBehind: React.FC = () => {
             </h2>
             
             <p className="text-xl text-gray-300 mb-12 max-w-lg">
-              It all started with one question: What if hiring didn't have to feel like gambling on a hunch?
+              It all started with one question: What if hiring didn&apos;t have to feel like gambling on a hunch?
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
