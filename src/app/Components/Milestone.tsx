@@ -62,7 +62,7 @@ const EnhancedMilestone: React.FC = () => {
   const { theme } = useTheme(); // Get current theme
   const isDarkMode = theme === 'dark';
 
-  // ✅ Call hooks here, outside of getCardTransforms
+  // ✅ Call hooks at the top level
   const transforms = milestones.map((_, index) => {
     const start = index / milestones.length;
     const end = (index + 1) / milestones.length;
