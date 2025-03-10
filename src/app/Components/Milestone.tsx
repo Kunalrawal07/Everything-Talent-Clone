@@ -1,8 +1,8 @@
 'use client';
-import { ReactLenis } from 'lenis/react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 import { useTheme } from '../Theme/ThemeContext'; // Import ThemeContext
+import Image from 'next/image';
 
 interface Stat {
   value: string;
@@ -118,7 +118,7 @@ const EnhancedMilestone: React.FC = () => {
         className={`w-full ${isDarkMode ? 'bg-gray-950 text-white' : 'bg-white text-gray-900'} transition-colors duration-300`}
         style={{ height: `${milestones.length * 100}vh` }}
       >
-        <div className="sticky top-[20vh] h-[60vh] overflow-visible">
+        <div className="sticky top-[15vh] h-[60vh] overflow-visible">
           <div className="relative h-full w-full max-w-6xl mx-auto">
             {milestones.map((milestone, index) => {
               const cardTransforms = getCardTransforms(index);
@@ -126,7 +126,7 @@ const EnhancedMilestone: React.FC = () => {
               return (
                 <motion.div
                   key={milestone.year}
-                  className="absolute top-0 left-0 right-0 mx-auto px-4 mb-52"
+                  className="absolute top-0 left-0 right-0 mx-auto px-4"
                   style={{
                     opacity: cardTransforms.opacity,
                     y: cardTransforms.y,
@@ -151,8 +151,10 @@ const EnhancedMilestone: React.FC = () => {
                       </div>
                       <div className="lg:w-1/2">
                         <div className="h-full w-full relative bg-gradient-to-br from-blue-600/30 to-purple-600/30 hidden lg:block">
-                          <img
+                          <Image
                             src={milestone.image || '/placeholder.svg'}
+                            height={500}
+                            width={800}
                             alt={`Milestone ${milestone.year}`}
                             className="w-full h-full object-cover"
                           />
