@@ -62,7 +62,7 @@ const EnhancedMilestone: React.FC = () => {
   const { theme } = useTheme(); // Get current theme
   const isDarkMode = theme === 'dark';
 
-  // ✅ Call hooks at the top level
+  // ✅ Precompute transforms for each milestone
   const transforms = milestones.map((_, index) => {
     const start = index / milestones.length;
     const end = (index + 1) / milestones.length;
