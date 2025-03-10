@@ -62,6 +62,19 @@ const EnhancedMilestone: React.FC = () => {
   const { theme } = useTheme(); // Get current theme
   const isDarkMode = theme === "dark";
 
+  // Calculate transforms for each milestone outside .map()
+  const transformValues = milestones.map((_, index) => {
+    const start = index / milestones.length;
+    const end = (index + 1) / milestones.length;
+
+    return {
+      opacity: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0, 1, 1, 0]),
+      y: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], ["20%", "0%", "0%", "-20%"]),
+      scale: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0.9, 1, 1, 0.9]),
+      zIndex: milestones.length - index,
+    };
+  });
+
   return (
     <>
       {/* Background Section */}
@@ -118,13 +131,7 @@ const EnhancedMilestone: React.FC = () => {
         <div className="sticky top-[15vh] h-[60vh] overflow-visible">
           <div className="relative h-full w-full max-w-6xl mx-auto">
             {milestones.map((milestone, index) => {
-              const start = index / milestones.length;
-              const end = (index + 1) / milestones.length;
-
-              // Using hooks inside the component
-              const opacity = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0, 1, 1, 0]);
-              const y = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], ["20%", "0%", "0%", "-20%"]);
-              const scale = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0.9, 1, 1, 0.9]);
+              const { opacity, y, scale, zIndex } = transformValues[index];
 
               return (
                 <motion.div
@@ -134,7 +141,7 @@ const EnhancedMilestone: React.FC = () => {
                     opacity,
                     y,
                     scale,
-                    zIndex: milestones.length - index,
+                    zIndex,
                   }}
                 >
                   <div className={`${isDarkMode ? "bg-gray-900" : "bg-gray-100"} rounded-2xl shadow-xl transition-colors duration-300`}>
