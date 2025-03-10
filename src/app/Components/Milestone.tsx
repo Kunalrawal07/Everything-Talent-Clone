@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { useTheme } from '../Theme/ThemeContext';
 
 // Define TypeScript interfaces for our data structure
 interface Stat {
@@ -23,6 +24,7 @@ const useCounterAnimation = (end: number, duration: number, visible: boolean) =>
   const [count, setCount] = useState(0);
   const countRef = useRef<number>(0);
   const frameRef = useRef<number | null>(null);
+ 
   
   useEffect(() => {
     if (!visible) {
@@ -95,6 +97,8 @@ const MilestonesTimeline: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<boolean[]>([]);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
   
   // Milestone data with formatted stats for animation
   const milestones: Milestone[] = [
@@ -252,10 +256,8 @@ const MilestonesTimeline: React.FC = () => {
   };
   
   return (
-    <div 
-      className="w-full bg-gray-950 text-white overflow-hidden" 
-      ref={containerRef}
-    >
+    <div className={`${isDarkMode ? "bg-gray-950 text-white" : "bg-gray-100 text-gray-900"}`} ref={containerRef}>
+
       {/* Header Section */}
       <div className="relative py-16 px-4 flex flex-col items-center justify-center text-center max-w-4xl mx-auto z-10">
         <div className="bg-gray-800 text-white text-sm px-4 py-2 rounded-full mb-6">

@@ -7,7 +7,6 @@ import { useTheme } from '../Theme/ThemeContext';
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === 'dark';
   const solutionsRef = useRef<HTMLDivElement>(null);
@@ -106,7 +105,7 @@ const Navbar: React.FC = () => {
             
             {/* Theme toggle button */}
             <button 
-              // onClick={toggleTheme} 
+              onClick={toggleTheme} 
               className="relative px-3 py-2 rounded-lg overflow-hidden group mx-1"
               aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
@@ -167,7 +166,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             {/* Theme toggle button for mobile */}
             <button 
-              // onClick={toggleTheme} 
+              onClick={toggleTheme} 
               className={`mr-3 p-2 rounded-lg ${isDarkMode ? 'bg-black/30' : 'bg-gray-200'} backdrop-blur-sm`}
               aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
             >

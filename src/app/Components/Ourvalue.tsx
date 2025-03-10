@@ -1,8 +1,12 @@
+"use client";
 import React from 'react';
+import { useTheme } from "../Theme/ThemeContext";
 
 const OurValues = () => {
+    const { theme } = useTheme();
+    const isDarkMode = theme === "dark";
   return (
-    <section className="bg-gray-900 text-white py-12 sm:py-16 md:py-20">
+    <section className={`py-12 sm:py-16 md:py-20 transition-colors duration-300 ${isDarkMode ? "bg-black text-white" : "bg-gray-300 text-white"}`}>
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="flex flex-col items-center mb-8 md:mb-16">
