@@ -9,6 +9,8 @@ import MilestonesTimeline from "./Components/Milestone";
 import JoinOurMission from "./Components/Join";
 // import Milestone2 from "./Components/Milestone2";
 // import Milestone3 from "./Components/Milestone3";
+// import Milestone2 from "./Components/Milestone2";
+// import Milestone3 from "./Components/Milestone3";
 
 export default function Home() {
   return (
@@ -20,7 +22,9 @@ export default function Home() {
     <OurValues/>
     <HowWeThrive/>
     {/* <Milestone/> */}
+    {/* <Milestone2/> */}
     <MilestonesTimeline/>
+    {/* <Milestone3/> */}
     {/* <Milestone2/>
     <Milestone3/> */}
     <JoinOurMission/>

@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={`${isDarkMode ? 'bg-transparent text-white' : 'bg-white text-gray-800'} w-full fixed z-50 transition-colors duration-300`}>
-      <div className="container mx-auto flex justify-between items-center px-4 py-4">
+      <div className="container mx-auto flex justify-between items-center px-4 py-4 ">
         {/* Left Panel (Logo and Navigation Links) */}
         <div className="flex items-center">
           <div className={`hidden md:flex space-x-4 lg:space-x-8 ${isDarkMode ? 'bg-black/50 border-white/20' : 'bg-white/90 border-gray-200'} p-1 rounded-lg border pr-4 pl-4 pt-2 pb-1 backdrop-blur-sm`}>
