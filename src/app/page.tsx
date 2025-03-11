@@ -5,13 +5,8 @@ import Navbar from "./Components/Navbar";
 import OurValues from "./Components/Ourvalue";
 import StoryBehind from "./Components/StoryBehindUs";
 import HowWeThrive from "./Components/Thrive";
-import MilestonesTimeline from "./Components/Milestone";
 import JoinOurMission from "./Components/Join";
-// import Milestone2 from "./Components/Milestone2";
-// import Milestone3 from "./Components/Milestone3";
-// import Milestone2 from "./Components/Milestone2";
-// import Milestone3 from "./Components/Milestone3";
-
+import EnhancedMilestone from "./Components/Milestone2";
 export default function Home() {
   return (
     <div className='bg-black text-white'>
@@ -20,15 +15,9 @@ export default function Home() {
     <Mission/>
     <StoryBehind/>
     <OurValues/>
-    <HowWeThrive/>
-    {/* <Milestone/> */}
-    {/* <Milestone2/> */}
-    <MilestonesTimeline/>
-    {/* <Milestone3/> */}
-    {/* <Milestone2/>
-    <Milestone3/> */}
+    <HowWeThrive/>  
+    <EnhancedMilestone/>
     <JoinOurMission/>
-
     <Footer/>
     </div>
   );
